@@ -1,0 +1,3 @@
+D:/RTY/GITHUB/Repositories/homework14/ex2/out/build/x64-Debug/CMakeFiles/ex2.dir
+D:/RTY/GITHUB/Repositories/homework14/ex2/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+D:/RTY/GITHUB/Repositories/homework14/ex2/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
