@@ -2,7 +2,7 @@
 #include <vector>
 
 using namespace std;
-char game[3][3];
+char game[3][3] {{' ',' ',' '}, {' ',' ',' '}, {' ',' ',' '}};
 char winner(char (*)[3]) {
 	for (int s = 0; s < 3; ++s) {
 		if (game[s][0] == game[s][1] && game[s][1] == game[s][2]) return game[s][0];
@@ -24,32 +24,57 @@ int main() {
 			cin >> x;
 			cin >> y;
 		} while (game[x][y] == 'X' || game[x][y] == 'O');
+
 		game[x][y] = 'X';
+
+		for (int i = 0; i < 3; ++i) {
+			for (int j = 0; j < 3; ++j) {
+				cout << " " << game[i][j];
+			}
+			cout << endl;
+		}
+
 		winner(game);
+
 		if (winner(game) == 'X') {
 			cout << "WINNER: X" << endl;
 			break;
 		}
 		else if (winner(game) == 'O') {
-			cout << "WINNER: X" << endl;
+			cout << "WINNER: O" << endl;
 			break;
 		}
+
 		++count;
+		
 		do {
 			cout << "Input O coordinates (x, y): ";
 			cin >> x;
 			cin >> y;
 		} while (game[x][y] == 'X' || game[x][y] == 'O');
+
 		game[x][y] = 'O';
+
+		for (int i = 0; i < 3; ++i) {
+			for (int j = 0; j < 3; ++j) {
+				cout << " " << game[i][j];
+			}
+			cout << endl;
+		}
+
 		winner(game);
+
 		if (winner(game) == 'X') {
 			cout << "WINNER: X" << endl;
 			break;
 		}
 		else if (winner(game) == 'O') {
-			cout << "WINNER: X" << endl;
+			cout << "WINNER: O" << endl;
 			break;
 		}
+
 		++count;
+
 	} while (count != 9);
+	return 0;
 }
