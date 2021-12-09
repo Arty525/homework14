@@ -1,0 +1,3 @@
+D:/RTY/GITHUB/Repositories/homework14/ex9_sea_battle/out/build/x64-Debug/CMakeFiles/ex9_sea_battle.dir
+D:/RTY/GITHUB/Repositories/homework14/ex9_sea_battle/out/build/x64-Debug/CMakeFiles/edit_cache.dir
+D:/RTY/GITHUB/Repositories/homework14/ex9_sea_battle/out/build/x64-Debug/CMakeFiles/rebuild_cache.dir
