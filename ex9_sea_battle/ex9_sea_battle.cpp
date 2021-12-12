@@ -6,6 +6,43 @@
 
 using namespace std;
 
+int ships = 4;
+int i;
+int j;
+int x;
+int y;
+
+void arrangement(int i, int j, int x, int y, int bf1[10][10], int cells) {
+	if (cells == 1) ships = 4;
+	if (cells == 2) ships = 3;
+	if (cells == 3) ships = 2;
+	if (cells == 4) ships = 1;
+	for (ships; ships > 0; --ships) {
+		cout << ships << " left." << endl;
+		cout << "Enter coordinates (x, y): ";
+		cin >> i;
+		cin >> j;
+		if (cells > 1) {
+			string direction;
+			cout << "choose direction, right or down (r / d): ";
+			cin >> direction;
+			if (direction == "r") {
+				x = i + cells - 1;
+				y = j;
+			}
+			else if (direction == "d") {
+				x = i;
+				y = j + cells - 1;
+			}
+			for (i; i <= x; ++i) {
+				for (j; j <= y; ++j) {
+					bf1[i][j] = 1;
+				}
+			}
+		}
+	}
+}
+
 int main() {
 	int bf1[10][10]{ {0000000000},
 					 {0000000000}, 
@@ -29,82 +66,20 @@ int main() {
 					 {0000000000},
 					 {0000000000} };
 
-	int ships1 = 4;
-	int ships2 = 3;
-	int ships3 = 2;
-	int ships4 = 1;
-	int i;
-	int j;
-	int x;
-	int y;
-
 	cout << "Player 1, arrage ships!" << endl;
 
-	cout << "1 cell ship, ";
+	for (int cells = 1; cells < 5; ++cells) {
 
-	for (ships1; ships1 > 0; --ships1) {
-		cout << ships1 << " left." << endl;
-		cout << "enter coordinates(x,y): ";
-		cin >> i;
-		cin >> j;
-		bf1[i][j] = 1;
-	}
+		cells == 1 ? cout << cells << " cell ship," : cout << cells << " cells ship, ";
 
-	cout << "2 cell ship, ";
+		arrangement(i, j, x, y, bf1, cells);
 
-	for (ships2; ships2 > 0; --ships2) {
-		cout << ships2 << " left." << endl;
-		cout << "enter first coordinates(x,y): ";
-		cin >> i;
-		cin >> j;
-		cout << "enter first coordinates(x,y): ";
-		cin >> x;
-		cin >> y;
-		for (i; i <= x; ++i) {
-			for (j; j <= y; ++j) {
-				bf1[i][j] = 1;
+		for (i = 0; i < 10; ++i) {
+			for (j = 0; j < 10; ++j) {
+				cout << bf1[i][j];
 			}
+			cout << endl;
 		}
 	}
-
-	cout << "3 cell ship, ";
-
-	for (ships3; ships3 > 0; --ships3) {
-		cout << ships3 << " left." << endl;
-		cout << "enter first coordinates(x,y): ";
-		cin >> i;
-		cin >> j;
-		cout << "enter first coordinates(x,y): ";
-		cin >> x;
-		cin >> y;
-		for (i; i <= x; ++i) {
-			for (j; j <= y; ++j) {
-				bf1[i][j] = 1;
-			}
-		}
-	}
-
-	cout << "4 cell ship, ";
-
-	for (ships4; ships4 > 0; --ships4) {
-		cout << ships4 << " left." << endl;
-		cout << "enter first coordinates(x,y): ";
-		cin >> i;
-		cin >> j;
-		cout << "enter first coordinates(x,y): ";
-		cin >> x;
-		cin >> y;
-		for (i; i <= x; ++i) {
-			for (j; j <= y; ++j) {
-				bf1[i][j] = 1;
-			}
-		}
-	}
-
-	for (i = 0; i < 10; ++i) {
-		for (j = 0; j < 10; ++j) {
-			cout << bf1[i][j];
-		}
-		cout << endl;
-	}
+	return 0;
 }
