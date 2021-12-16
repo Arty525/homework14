@@ -41,12 +41,16 @@ void arrangement(int i, int j, int x, int y, int bf1[10][10], int bf2[10][10], i
 			do{
 				x = i;
 				y = j;
+				
 				cross = 0;
-				cout << i << " " << j << endl;
+				
 				do {
 					cout << "choose direction, right or down (r / d): "; //Направление в котором будет повернут корабль
+					
 					cin >> direction;
+					
 				} while (direction != "r" && direction != "d");
+				
 				if (direction == "r") { //вправо
 					for (j; j < y + cells; ++j) {
 						if (bf[i][j] == 1) {
@@ -220,7 +224,7 @@ int main() {
 
 		cout << "Your's score: " << 20 - sphp << endl;
 
-		cout << endl << "<<<<< Second player's turn >>>>>" << endl << endl; //ход первого игрока
+		cout << endl << "<<<<< Second player's turn >>>>>" << endl << endl; //ход второго игрока
 
 		for (i = 0; i < 10; ++i) { //вывод поля перед выстрелом
 			for (j = 0; j < 10; ++j) {
